@@ -20,21 +20,26 @@ public class Main {
                     "Option 3. performs a port scan on your local computer show ports\n" +
                     "Option 4. show the routing table\nEnter 5 to Exit\nChoose an Option: ");
             String option = reader.nextLine();
-            if(option == "1"){
+
+            if(option.equals("1")){
                     NetworkPing newPing = new NetworkPing();
                 newPing.setHostName("www.espn.com");
                 newPing.getPing();
-            }else if (option == "2"){
+            }else if (option.equals("2")){
                 NICDetails newDetails = new NICDetails();
                 newDetails.getDetails();
-            }else if (option == "3"){
+            }else if (option.equals("3")){
+                Scanner reader2 = new Scanner(System.in);
+                System.out.println("Enter Target Host: ");
+                String option2 = reader2.nextLine();
                 PortScanner newScan = new PortScanner();
+                newScan.setTargetHost(option2);
                 newScan.portScan();
 
-            }else if (option == "4"){
+            }else if (option.equals("4")){
                 RoutingTable newTable = new RoutingTable();
                 newTable.getRoutingTable();
-            }else if (option == "5"){
+            }else if (option.equals("5")){
                 onOrOff = 0;
             }
 
